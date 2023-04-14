@@ -15,5 +15,5 @@ jobs:
 
       - name: setup and test
         run: |
-          npm ci
+          npm install
           npx hardhat test
