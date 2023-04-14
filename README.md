@@ -5,6 +5,4 @@
 ## ethglobal-hack
 Include 
 - [ ] All Evm compatible chain
-- [ ] Metamask
-- [ ] Quicknode
-- [ ] 
+- [ ] ...
