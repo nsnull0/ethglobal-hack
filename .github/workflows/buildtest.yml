@@ -1,0 +1,19 @@
+name: Test and Build Contract
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+
+jobs:
+  test_contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup and test
+        run: |
+          npm ci
+          npx hardhat test
