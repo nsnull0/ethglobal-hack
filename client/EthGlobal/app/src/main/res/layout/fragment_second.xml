@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/eventContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="16dp"
+                android:gravity="start"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                tools:text="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eventTitleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/eventTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="Event Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/priceContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eventContainer"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="16dp"
+                android:gravity="start"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                tools:text="Price" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/priceTitleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eventContainer"
+            android:background="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/priceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="Price" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tokenAddressContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priceContainer"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/tokenAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="16dp"
+                android:gravity="start"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                tools:text="Payment token address" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tokenAddressTitleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priceContainer"
+            android:background="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/tokenAddressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="Payment token address" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp"
+            tools:text="SUBSCRIBE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tokenAddressContainer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
