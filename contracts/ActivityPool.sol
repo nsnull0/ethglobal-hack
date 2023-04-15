@@ -71,6 +71,12 @@ contract Activity is IActivity, ReentrancyGuard {
     qrCode = uint(keccak256(abi.encodePacked(block.timestamp,msg.sender,nonce)));
   }
 
+  function setActivityName(
+    string memory _name
+  ) external onlyOwner {
+    activityName = _name;
+  }
+
   function setPrice(
     uint256 _amount
   ) external onlyOwner {
@@ -139,15 +145,19 @@ contract Activity is IActivity, ReentrancyGuard {
     emit subscribed(_name, block.timestamp);
   }
 
-  function checkIntoThisActivity() external nonReentrant {
-    bool _isSubscribed = subscribedPeople[msg.sender].isSubscribed;
-    bool _isCheckin = subscribedPeople[msg.sender].isCheckIn;
-    require((_isSubscribed), "Member not yet subscribe");
-    require((!_isCheckin), "Member already checkin");
-    Attendant memory _attendy = subscribedPeople[msg.sender];
-    _attendy.isCheckIn = true;
-    subscribedPeople[msg.sender] = _attendy;
-    emit checkIn(_attendy.name, block.timestamp);
+  function checkIntoThisActivity(
+    uint256 _validationQrCode
+    ) external nonReentrant {
+      require((qrCode > 0), "QR code not generated yet");
+      require((_validationQrCode == qrCode), "QrCode not matched");
+      bool _isSubscribed = subscribedPeople[msg.sender].isSubscribed;
+      bool _isCheckin = subscribedPeople[msg.sender].isCheckIn;
+      require((_isSubscribed), "Member not yet subscribe");
+      require((!_isCheckin), "Member already checkin");
+      Attendant memory _attendy = subscribedPeople[msg.sender];
+      _attendy.isCheckIn = true;
+      subscribedPeople[msg.sender] = _attendy;
+      emit checkIn(_attendy.name, block.timestamp);
   }
 
   modifier onlyOwner() {
