@@ -16,7 +16,10 @@ describe("Test Activity Pool", () => {
 
   describe('Test List Of Activity', async () => {
     it('return list of correct activity', async () => {
-      
+      await expect(activityPool.connect(businessAccount).activities.length).to.equal(0);
+      await activityPool.connect(businessAccount).createActivity();
+      const _currentActivityCount = await activityPool.connect(businessAccount).getListOfActivity();
+      await expect(_currentActivityCount.length).to.equal(1);
     })
   })
 
