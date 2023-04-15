@@ -74,12 +74,14 @@ describe("Test Activity Item", () => {
     it('expected user to checkIn successfully', async () => {
     	await activity.connect(businessAccount).setPrice(10);
   		await activity.connect(businessAccount).setPaymentToken(tokenPayment.address);
+      await activity.connect(businessAccount).generateQrCode();
+      const _qrCode = await activity.connect(customerAccount).getQrCode();
     	await expect(activity.connect(customerAccount).subscribeThisActivity("ETHGlobal")).to.be.reverted;
     	await tokenPayment.mint(customerAccount.address, 100);
     	await tokenPayment.connect(customerAccount).approve(activity.address, 10);
-    	await expect(activity.connect(customerAccount).checkIntoThisActivity()).to.be.reverted;
+    	await expect(activity.connect(customerAccount).checkIntoThisActivity(_qrCode)).to.be.reverted;
     	await expect(activity.connect(customerAccount).subscribeThisActivity("ETHGlobal")).to.not.be.reverted; 
-    	await expect(activity.connect(customerAccount).checkIntoThisActivity()).to.not.be.reverted;
+    	await expect(activity.connect(customerAccount).checkIntoThisActivity(_qrCode)).to.not.be.reverted;
     	const _isSubcribed = await activity.connect(customerAccount).getSubscribeStatus();
     	const _isCheckin = await activity.connect(customerAccount).getCheckInStatus();
     	expect(_isSubcribed && _isCheckin).to.equal(true);
